@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:internet/cubit/internet_cubit.dart';
 import 'package:internet/home_Page.dart';
-import 'package:bloc/bloc.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
@@ -20,7 +21,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),useMaterial3: true
       ),
-      home:const HomePage(),
+     home: BlocProvider<InternetCubit>(
+      create: (context) => InternetCubit(),
+      child: const HomePage(),
+     ),
     );
   }
 }
